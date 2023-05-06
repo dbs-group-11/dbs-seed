@@ -1,9 +1,11 @@
 import { Button } from '@mui/base';
 import { TextField } from '@mui/material';
 import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../shared/context/authContext';
+import './Auth.css'
 
 const Auth = () => {
-    
+    const auth = useContext(AuthContext);
     const [employeeId, setEmployeeId] = useState("")
     const [password, setPassword] = useState("")
     const [employeeIdError, setEmployeeIdError] = useState(false)
@@ -24,11 +26,12 @@ const Auth = () => {
         if (employeeId && password) {
             console.log(employeeId, password)
         }
+        // handle http call here
     };
   
     return (
         <React.Fragment>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="authForm">
             <h2>Login Form</h2>
                 <TextField 
                     label="EmployeeId"
@@ -38,7 +41,7 @@ const Auth = () => {
                     color="secondary"
                     type="text"
                     sx={{mb: 3}}
-                    fullWidth
+                    className = "authInput"
                     value={employeeId}
                     error={employeeIdError}
                  />
@@ -49,12 +52,12 @@ const Auth = () => {
                     variant="outlined"
                     color="secondary"
                     type="password"
+                    className='authInput'
                     value={password}
                     error={passwordError}
-                    fullWidth
                     sx={{mb: 3}}
                  />
-                 <Button variant="outlined" color="secondary" type="submit">Login</Button>
+                 <Button variant="contained" className='authButton' color="primary" type="submit">Login</Button>
         </form>
         </React.Fragment>
     );
