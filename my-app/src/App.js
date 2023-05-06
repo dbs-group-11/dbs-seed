@@ -11,16 +11,16 @@ function App() {
   const {token, login, logout, userId } = useAuth();
   let routes;
 
-  if (token) {
+  if (true) {
       routes = (
           <Routes>
-              <Route path="/" exact>
-                <ExpenseTable/>
+              <Route path="/" element={<ExpenseTable/>}>
+               
               </Route>
-              <Route path="/claims/new" exact>
+              <Route path="/claims/new" >
                 {/* create claim */}
               </Route>
-              <Route path="/claims/:claimId" exact>
+              <Route path="/claims/:claimId" >
                   {/* update claim */}
               </Route>
               <Navigate to="/" />
@@ -48,11 +48,9 @@ function App() {
         }
       }
     >
-      <Router>
         <main>
-          <Auth />
+          {routes}
         </main>
-      </Router>
     </AuthContext.Provider>
 
   );
