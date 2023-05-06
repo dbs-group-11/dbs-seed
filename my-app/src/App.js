@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-do
 import { AuthContext } from './shared/context/authContext';
 import { useAuth } from './shared/hook/authHook';
 import Auth from './user/page/Auth';
-
+import ClaimsFormContainer from './ClaimsForm/ClaimsForm';
 function App() {
   const {token, login, logout, userId, firstName, lastName} = useAuth();
   let routes;
@@ -17,7 +17,8 @@ function App() {
               <Route path="/" element={<ExpenseTable/>}>
                
               </Route>
-              <Route path="/claims/new" >
+              <Route path="/claims/new" element={<ClaimsFormContainer/>}>
+
                 {/* create claim */}
               </Route>
               <Route path="/claims/:claimId" >
@@ -43,8 +44,8 @@ function App() {
           isLoggedIn: !!token,
           userId: userId,
           token: token,
-          firstName: firstName,
-          lastName: lastName,
+          firstName: 'firstName',
+          lastName: 'lastName',
           login: login,
           logout: logout
         }

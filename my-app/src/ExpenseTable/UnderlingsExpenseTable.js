@@ -17,7 +17,7 @@ export default function UnderlingsExpenseTable() {
     "Claim Amount",
     "Status",
   ];
-  const [employeeClaimData, setEmployeeClaimData] = React.useState([
+  const dummyData = [
     {
       employeeId: "1",
       projectId: "1",
@@ -44,10 +44,13 @@ export default function UnderlingsExpenseTable() {
       claimAmt: "1234",
       status: "pending",
     },
-  ]);
+  ]
+  const [employeeClaimData, setEmployeeClaimData] = React.useState(dummyData);
   const onSupervisorActionHandler = async (empId,claimId) => {
 //after approving or rejecting claim http req
-employeeClaimData.filter((el)=>el.claimId!=claimId)
+//then filter data
+const filteredData = employeeClaimData.filter((el)=>el.claimId!=claimId)
+setEmployeeClaimData(filteredData)
 // console.log(employeeClaimData)
   };
   return (

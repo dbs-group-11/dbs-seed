@@ -6,7 +6,6 @@ import DashboardTitle from '../DashboardTitle';
 import { Button } from '@mui/material';
 
 
-
 export default function ExpenseTable() {
   
   return (

@@ -2,13 +2,16 @@ import React from "react";
 import { useState } from "react";
 import "./ClaimsForm.css";
 import { Button, TextField, RadioGroup, Radio} from "@mui/material";
+import { AuthContext } from "../shared/context/authContext";
+import { useContext } from "react";
 const ClaimsFormContainer = (props) => {
+  const auth = useContext(AuthContext);
   const [firstName, setFirstName] = useState({
-    value: "",
+    value: auth.firstName,
     error: false,
   });
   const [lastName, setLastName] = useState({
-    value: "",
+    value: auth.lastName,
     error: false,
   });
   const [claimAmt, setClaimAmt] = useState({
