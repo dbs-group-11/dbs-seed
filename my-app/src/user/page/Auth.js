@@ -1,64 +1,60 @@
+import { Button } from '@mui/base';
+import { TextField } from '@mui/material';
 import React, { useContext, useState } from 'react';
 
-import Button from '../../shared/components/FormElements/Button';
-import Input from '../../shared/components/FormElements/Input';
-import Card from '../../shared/components/UIElement/Card';
-import { AuthContext } from '../../shared/context/auth-context';
-import { useForm } from '../../shared/hooks/form-hook';
-import { VALIDATOR_EMAIL, VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE} from '../../util/validators';
-import ErrorModal from '../../shared/components/UIElement/ErrorModal';
-import LoadingSpinner from '../../shared/components/UIElement/LoadingSpinner';
+const Auth = () => { 
+    const [employeeId, setEmployeeId] = useState("")
+    const [password, setPassword] = useState("")
+    const [employeeIdError, setEmployeeIdError] = useState(false)
+    const [passwordError, setPasswordError] = useState(false)
 
-const Auth = () => {
-    const auth = useContext(AuthContext);
-    const [formDetails, setFormDetails] = useState({employeeId: {
-        value: "", isValid: false
-    }, password: {value: "", isValid: false}, isValid: false});
-    const [isValidForm, setIsValidForm] = useState(false);
-
-    const authSubmitHandler = async event => {
+    const handleSubmit = async event => {
         event.preventDefault();
-        console.log(formDetails);
+        setEmployeeIdError(false)
+        setPasswordError(false)
+ 
+        if (employeeId === '') {
+            setEmployeeIdError(true)
+        }
+        if (password === '') {
+            setPasswordError(true)
+        }
+ 
+        if (employeeId && password) {
+            console.log(employeeId, password)
+        }
     };
-
-    const inputHandler = () => {
-        setIsValidForm(currState => currState && state.inputs[inputId].isValid);
-        setFormDetails (currState =>  ({
-            ...currState,
-            inputs: {
-                ...state.inputs,
-                [action.inputId]: { value: action.value, isValid: action.isValid }
-            },
-            isValid: isValidForm
-        }))
-    }
   
     return (
         <React.Fragment>
-            <ErrorModal error={error} onClear={clearError} />
-                {isLoading && <LoadingSpinner asOverlay />}
-                <h2>Login Required</h2>
-                <hr />
-                <form onSubmit={authSubmitHandler}>
-                    <Input
-                        element="input"
-                        id="employeeId"
-                        type="email"
-                        label="E-Mail"
-                        onInput={inputHandler}
-                    />
-                    <Input
-                        element="input"
-                        id="password"
-                        type="password"
-                        label="Password"
-                        validators={[VALIDATOR_MINLENGTH(6)]}
-                        errorText="Please enter a valid password, at least 6 characters."
-                        onInput={inputHandler}
-                    />
-                    <Button type="submit" disabled={!formState.isValid}>
-                    </Button>
-                </form>
+        <form onSubmit={handleSubmit}>
+            <h2>Login Form</h2>
+                <TextField 
+                    label="EmployeeId"
+                    onChange={e => setEmployeeId(e.target.value)}
+                    required
+                    variant="outlined"
+                    color="secondary"
+                    type="text"
+                    sx={{mb: 3}}
+                    fullWidth
+                    value={employeeId}
+                    error={employeeIdError}
+                 />
+                 <TextField 
+                    label="Password"
+                    onChange={e => setPassword(e.target.value)}
+                    required
+                    variant="outlined"
+                    color="secondary"
+                    type="password"
+                    value={password}
+                    error={passwordError}
+                    fullWidth
+                    sx={{mb: 3}}
+                 />
+                 <Button variant="outlined" color="secondary" type="submit">Login</Button>
+        </form>
         </React.Fragment>
     );
   };
