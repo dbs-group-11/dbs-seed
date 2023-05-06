@@ -82,7 +82,7 @@ const UpdateClaim = (props) => {
     }
   };
   return (
-    <form className="form" onSubmit={onSubmitHandler, handleSubmit}>
+    <form className="form" onSubmit={onSubmitHandler}>
       <TextField
         label="First Name"
         color="secondary"
@@ -127,7 +127,7 @@ const UpdateClaim = (props) => {
       />
 
       
-      <Button type="submit" variant="contained" onClick={navigateToDashboard, handleSubmit} >
+      <Button type="submit" variant="contained" onClick={navigateToDashboard} >
         Update
       </Button>
 
