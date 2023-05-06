@@ -2,19 +2,21 @@ import {BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-do
 import { AuthContext } from './shared/context/authContext';
 import { useAuth } from './shared/hook/authHook';
 import Auth from './user/page/Auth';
+import ClaimsFormContainer from './claimsForm/ClaimsForm';
+import UpdateClaims from './UpdateClaims';
 
 function App() {
   const {token, login, logout, userId } = useAuth();
   let routes;
 
-  if (token) {
+  if (true) {
       routes = (
           <Routes>
               <Route path="/claims" exact>
                 {/* display claim */}
               </Route>
               <Route path="/claims/new" exact>
-                {/* create claim */}
+                {/* <ClaimsFormContainer/> */}
               </Route>
               <Route path="/claims/:claimId" exact>
                   {/* update claim */}
@@ -36,7 +38,7 @@ function App() {
     <AuthContext.Provider 
       value={
         {
-          isLoggedIn: !!token,
+          isLoggedIn: true,
           userId: userId,
           token: token,
           login: login,
@@ -46,8 +48,9 @@ function App() {
     >
       <Router>
         <main>
-          <Auth />
-        </main>
+          <ClaimsFormContainer/>
+         <UpdateClaims />
+       </main>
       </Router>
     </AuthContext.Provider>
 
