@@ -1,0 +1,16 @@
+.expense-table-header{
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.create-claim-btn{
+    display: flex;
+    justify-content: end;
+  }
+.expense-table{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
