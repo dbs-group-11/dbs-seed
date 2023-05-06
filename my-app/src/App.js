@@ -1,15 +1,16 @@
 import './App.css';
-import Dashboard from './Dashboard';
+import DashboardTitle from './DashboardTitle';
 import Footer from './Footer';
-import BasicTable from './Table';
+import ExpenseTable from './ExpenseTable/ExpenseTable';
+import { Button } from '@mui/material';
 
 
 function App() {
   return (
     <div className="App">
-      <Dashboard />
-      <BasicTable />
-      <Footer />
+    
+      <ExpenseTable />
+      {/* <Footer /> */}
     </div>
   );
 }
