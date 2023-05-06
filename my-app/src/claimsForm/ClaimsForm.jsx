@@ -4,7 +4,7 @@ import "./ClaimsForm.css";
 import { Button, TextField, RadioGroup, Radio} from "@mui/material";
 import { AuthContext } from "../shared/context/authContext";
 import { useContext } from "react";
-const ClaimsFormContainer = (props) => {
+const ClaimsForm = (props) => {
   const auth = useContext(AuthContext);
   const [firstName, setFirstName] = useState({
     value: auth.firstName,
@@ -122,4 +122,4 @@ const ClaimsFormContainer = (props) => {
   );
 };
 
-export default ClaimsFormContainer;
+export default ClaimsForm;

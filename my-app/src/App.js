@@ -6,8 +6,8 @@ import {BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-do
 import { AuthContext } from './shared/context/authContext';
 import { useAuth } from './shared/hook/authHook';
 import Auth from './user/page/Auth';
-import ClaimsFormContainer from './claimsForm/ClaimsForm';
-import UpdateClaims from './UpdateClaims';
+import ClaimsForm from './ClaimsForm/ClaimsForm';
+import UpdateClaims from './ClaimsForm/UpdateClaims';
 
 function App() {
   const {token, login, logout, userId, firstName, lastName} = useAuth();
@@ -19,11 +19,11 @@ function App() {
               <Route path="/" element={<ExpenseTable/>}>
                
               </Route>
-              <Route path="/claims/new" element={<ClaimsFormContainer/>}>
+              <Route path="/claims/new" element={<ClaimsForm/>}>
 
                 {/* create claim */}
               </Route>
-              <Route path="/claims/:claimId" >
+              <Route path="/claims/:claimId" element={<UpdateClaims/>}>
                   {/* update claim */}
               </Route>
               

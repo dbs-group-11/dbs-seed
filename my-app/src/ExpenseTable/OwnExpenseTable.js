@@ -66,7 +66,7 @@ export default function OwnExpenseTable() {
               <TableCell align="right">{row.claimAmt}</TableCell>
               <TableCell align="right">{row.status}</TableCell>
               <TableCell align="right">
-                <Button><Link to='/claims/new'>Update</Link></Button>
+                <Button><Link to={`/claims/${row.claimId}`}>Update</Link></Button>
                 <Button>Delete</Button>
               </TableCell>
             </TableRow>

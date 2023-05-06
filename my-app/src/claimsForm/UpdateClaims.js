@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "./claimsForm/ClaimsForm.css";
+import "./ClaimsForm.css";
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import { Button, TextField, RadioGroup, Radio} from "@mui/material";
 
