@@ -1,3 +1,36 @@
+.dashboard-ul{
+  padding: 10px;
+  margin: 0px;
+  background-color: black;
+}
+
+
+.dashboard-ul li{
+  display: inline-block;
+  padding: 10px;
+}
+
+.dashboard-ul li a{
+  color: white;
+  background-color: none;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.dashboard-title{
+  color: white;
+  text-align: center;
+}
+.footer {
+  bottom: 0;
+  background-color: black;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+
+
 main {
   margin: auto;
   display: flex;

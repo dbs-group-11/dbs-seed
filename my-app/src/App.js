@@ -1,3 +1,7 @@
+import './App.css';
+
+import ExpenseTable from './ExpenseTable/ExpenseTable';
+
 import {BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { AuthContext } from './shared/context/authContext';
 import { useAuth } from './shared/hook/authHook';
@@ -7,19 +11,19 @@ function App() {
   const {token, login, logout, userId } = useAuth();
   let routes;
 
-  if (token) {
+  if (true) {
       routes = (
           <Routes>
-              <Route path="/claims" exact>
-                {/* display claim */}
+              <Route path="/" element={<ExpenseTable/>}>
+               
               </Route>
-              <Route path="/claims/new" exact>
+              <Route path="/claims/new" >
                 {/* create claim */}
               </Route>
-              <Route path="/claims/:claimId" exact>
+              <Route path="/claims/:claimId" >
                   {/* update claim */}
               </Route>
-              <Navigate to="/" />
+              
           </Routes>
       );
   } else {
@@ -44,11 +48,9 @@ function App() {
         }
       }
     >
-      <Router>
         <main>
-          <Auth />
+          {routes}
         </main>
-      </Router>
     </AuthContext.Provider>
 
   );
