@@ -1,11 +1,27 @@
-import logo from './logo.svg';
+import { AuthContext } from './shared/context/authContext';
+import { useAuth } from './shared/hook/authHook';
 import Auth from './user/page/Auth';
 
 function App() {
+  const {token, login, logout, userId } = useAuth();
+
   return (
-    <header>
-      <Auth />
-    </header>
+    <AuthContext.Provider 
+      value={
+        {
+          isLoggedIn: !!token,
+          userId: userId,
+          token: token,
+          login: login,
+          logout: logout
+        }
+      }
+    >
+      <header>
+        <Auth />
+      </header>
+    </AuthContext.Provider>
+
   );
 }
 

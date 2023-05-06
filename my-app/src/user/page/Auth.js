@@ -2,7 +2,8 @@ import { Button } from '@mui/base';
 import { TextField } from '@mui/material';
 import React, { useContext, useState } from 'react';
 
-const Auth = () => { 
+const Auth = () => {
+    
     const [employeeId, setEmployeeId] = useState("")
     const [password, setPassword] = useState("")
     const [employeeIdError, setEmployeeIdError] = useState(false)
