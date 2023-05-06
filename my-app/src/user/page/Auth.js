@@ -21,21 +21,20 @@ const Auth = () => {
     if (password === "") {
       setPasswordError(true);
     }
-
-    if (employeeId && password) {
-      console.log(employeeId, password);
+    try {
+      const response = await fetch(
+        `http://localhost:5000/login?employeeID=${employeeId}&password=${password}`,
+        {
+          method: "POST",
+          body: null,
+          headers: {},
+        }
+      );
+      const responseData = await response.json();
+      auth.login(responseData.userId,  responseData.token, responseData.firstName, responseData.lastName)
+    } catch (err) {
+      console.log(err)
     }
-
-    const response = await fetch(
-      `http://localhost:5000/login?employeeID=${employeeId}&password=${password}`,
-      {
-        method: "POST",
-        body: null,
-        headers: {},
-      }
-    );
-    const responseData = await response.json();
-    console.log(responseData);
   };
 
   return (

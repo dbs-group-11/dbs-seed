@@ -4,7 +4,7 @@ import { useAuth } from './shared/hook/authHook';
 import Auth from './user/page/Auth';
 
 function App() {
-  const {token, login, logout, userId } = useAuth();
+  const {token, login, logout, userId, firstName, lastName} = useAuth();
   let routes;
 
   if (token) {
@@ -39,6 +39,8 @@ function App() {
           isLoggedIn: !!token,
           userId: userId,
           token: token,
+          firstName: firstName,
+          lastName: lastName,
           login: login,
           logout: logout
         }
