@@ -6,7 +6,9 @@ import {BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-do
 import { AuthContext } from './shared/context/authContext';
 import { useAuth } from './shared/hook/authHook';
 import Auth from './user/page/Auth';
-import ClaimsFormContainer from './ClaimsForm/ClaimsForm';
+import ClaimsFormContainer from './claimsForm/ClaimsForm';
+import UpdateClaims from './UpdateClaims';
+
 function App() {
   const {token, login, logout, userId, firstName, lastName} = useAuth();
   let routes;
@@ -41,7 +43,7 @@ function App() {
     <AuthContext.Provider 
       value={
         {
-          isLoggedIn: !!token,
+          isLoggedIn: true,
           userId: userId,
           token: token,
           firstName: 'firstName',
