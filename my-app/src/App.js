@@ -23,7 +23,7 @@ function App() {
               <Route path="/claims/:claimId" >
                   {/* update claim */}
               </Route>
-              <Navigate to="/" />
+              
           </Routes>
       );
   } else {
